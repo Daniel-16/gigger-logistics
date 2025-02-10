@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigger - Premium Logistics Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-gray': '#F5F5F7',
+                        'apple-text': '#1D1D1F',
+                        'apple-accent': '#2997FF'
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-apple-gray">
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav th:replace="fragments/navbar :: navbar"></nav>
+
+        <!-- Hero Section -->
+        <div class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col lg:flex-row items-center justify-between">
+                    <!-- Left Content -->
+                    <div class="w-full lg:w-1/2 lg:pr-12 animate-fade-in">
+                        <h1 class="text-6xl font-bold text-apple-text leading-tight mb-6">
+                            Seamless Global
+                            <span class="block text-apple-accent">Logistics Solutions</span>
+                        </h1>
+                        
+                        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                            Experience premium shipping services with cutting-edge technology and 
+                            worldwide reach. Every package, handled with precision.
+                        </p>
+                        
+                        <!-- Stats -->
+                        <div class="flex items-center gap-8 mb-12">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-white/80 p-4 rounded-2xl shadow-lg">
+                                    <svg class="w-6 h-6 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-apple-text">1.5M+</p>
+                                    <p class="text-sm text-gray-500">Happy Clients</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-3">
+                                <div class="bg-white/80 p-4 rounded-2xl shadow-lg">
+                                    <svg class="w-6 h-6 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-bold text-apple-text">98%</p>
+                                    <p class="text-sm text-gray-500">Success Rate</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="group inline-flex items-center bg-apple-text text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all duration-200">
+                            Get Started
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Right Illustration -->
+                    <div class="w-full lg:w-1/2 mt-12 lg:mt-0">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-apple-accent/20 to-transparent rounded-3xl transform rotate-3"></div>
+                            <div class="relative bg-white p-8 rounded-3xl shadow-xl">
+                                <svg class="w-full" viewBox="0 0 500 300" fill="none">
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#2997FF;stop-opacity:0.2" />
+                                            <stop offset="100%" style="stop-color:#2997FF;stop-opacity:0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="0" y="0" width="500" height="300" fill="url(#gradient)" rx="20"/>
+                                    <path d="M250 50 L250 80" stroke="#1D1D1F" stroke-width="4"/>
+                                    <path d="M220 80 L280 80" stroke="#1D1D1F" stroke-width="4"/>
+                                    <rect x="100" y="100" width="300" height="150" fill="#1D1D1F" rx="10"/>
+                                    <rect x="110" y="110" width="280" height="130" fill="#1D1D1F" stroke="white" stroke-width="2" rx="8"/>
+                                    <path d="M200 160 C220 160, 240 200, 260 160" stroke="white" stroke-width="8" fill="none"/>
+                                    <text x="270" y="180" fill="white" font-size="24" font-weight="bold">gigger</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-semibold text-apple-text mb-4">Why Choose Gigger</h2>
+                    <p class="text-xl text-gray-600">Experience logistics like never before with our premium services</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="p-8 rounded-3xl bg-apple-gray hover:scale-105 transition-transform duration-300">
+                        <div class="bg-apple-accent/10 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-apple-text mb-4">Lightning Fast</h3>
+                        <p class="text-gray-600">Express delivery services that ensure your packages arrive right on schedule.</p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-apple-gray hover:scale-105 transition-transform duration-300">
+                        <div class="bg-apple-accent/10 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-apple-text mb-4">Secure Handling</h3>
+                        <p class="text-gray-600">Advanced tracking and security measures to protect your valuable shipments.</p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-apple-gray hover:scale-105 transition-transform duration-300">
+                        <div class="bg-apple-accent/10 p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-apple-text mb-4">Global Network</h3>
+                        <p class="text-gray-600">Extensive international coverage with local expertise in key markets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="w-full lg:w-1/2">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-apple-accent/20 to-transparent rounded-3xl transform -rotate-3"></div>
+                            <div class="relative bg-white p-8 rounded-3xl shadow-xl">
+                                <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800" 
+                                     alt="Logistics Services" 
+                                     class="w-full h-[400px] object-cover rounded-2xl"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2">
+                        <span class="text-apple-accent font-medium">Our Services</span>
+                        <h2 class="text-4xl font-semibold text-apple-text mt-4 mb-6">Comprehensive Logistics Solutions</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-apple-accent/10 p-3 rounded-xl">
+                                    <svg class="w-6 h-6 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-apple-text mb-2">Air Freight Services</h3>
+                                    <p class="text-gray-600">Express air freight solutions for time-sensitive deliveries worldwide.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="bg-apple-accent/10 p-3 rounded-xl">
+                                    <svg class="w-6 h-6 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-apple-text mb-2">Ocean Freight</h3>
+                                    <p class="text-gray-600">Cost-effective sea freight options for larger shipments.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="bg-apple-accent/10 p-3 rounded-xl">
+                                    <svg class="w-6 h-6 text-apple-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-apple-text mb-2">Custom Clearance</h3>
+                                    <p class="text-gray-600">Expert handling of customs documentation and procedures.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-semibold text-apple-text mb-4">What Our Clients Say</h2>
+                    <p class="text-xl text-gray-600">Trusted by businesses worldwide</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-3xl bg-apple-gray">
+                        <div class="flex items-center mb-6">
+                            <div class="flex-shrink-0">
+                                <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-apple-text">John Doe</h3>
+                                <p class="text-gray-600">CEO, TechCorp</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">"Gigger has transformed how we handle our international shipments. Their service is unmatched."</p>
+                    </div>
+                    
+                    <div class="p-8 rounded-3xl bg-apple-gray">
+                        <div class="flex items-center mb-6">
+                            <div class="flex-shrink-0">
+                                <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-apple-text">Jane Smith</h3>
+                                <p class="text-gray-600">Operations Director, GlobalTrade</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">"The attention to detail and customer service is exceptional. Would highly recommend."</p>
+                    </div>
+                    
+                    <div class="p-8 rounded-3xl bg-apple-gray">
+                        <div class="flex items-center mb-6">
+                            <div class="flex-shrink-0">
+                                <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User">
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-semibold text-apple-text">Mark Johnson</h3>
+                                <p class="text-gray-600">Logistics Manager, FastTrack</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">"Their global network and efficient processes have saved us both time and money."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="bg-apple-text rounded-3xl overflow-hidden">
+                    <div class="p-12 text-center">
+                        <h2 class="text-4xl font-semibold text-white mb-4">Ready to Get Started?</h2>
+                        <p class="text-xl text-white/80 mb-8">Join thousands of satisfied customers worldwide</p>
+                        <button class="bg-apple-accent text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all duration-200">
+                            Contact Us Today
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Footer Fragment</title>
+</head>
+<body>
+    <footer th:fragment="footer" class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <p>Email: contact@deliveryservice.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul>
+                        <li><a href="/" class="hover:text-indigo-400">Home</a></li>
+                        <li><a href="/about" class="hover:text-indigo-400">About</a></li>
+                        <li><a href="/create-vehicle" class="hover:text-indigo-400">Manage Vehicles</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-indigo-400">Twitter</a>
+                        <a href="#" class="hover:text-indigo-400">Facebook</a>
+                        <a href="#" class="hover:text-indigo-400">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2025 DeliveryService. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

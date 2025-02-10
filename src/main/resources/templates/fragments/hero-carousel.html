@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="hero-carousel" id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+            <div class="carousel-caption">
+                <h1 class="display-4 fw-bold">Efficient Delivery Management</h1>
+                <p class="lead">Streamline your delivery operations with our comprehensive solution</p>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1615460549969-36fa19521a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+            <div class="carousel-caption">
+                <h1 class="display-4 fw-bold">Smart Route Optimization</h1>
+                <p class="lead">Save time and resources with our intelligent routing system</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" 
+            style="background-color: grey; border-radius: 50%; width: 40px; height: 40px;">
+        <span class="carousel-control-prev-icon" style="filter: brightness(0);"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+</html>

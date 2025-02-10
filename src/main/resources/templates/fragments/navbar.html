@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Navbar Fragment</title>
+</head>
+<body>
+    <nav th:fragment="navbar" class="fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-semibold bg-gradient-to-r from-apple-text to-apple-accent bg-clip-text text-transparent">
+                        gigger
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-apple-text hover:text-apple-accent transition-colors duration-200">Home</a>
+                    <a href="#" class="text-apple-text hover:text-apple-accent transition-colors duration-200">Company</a>
+                    <a href="#" class="text-apple-text hover:text-apple-accent transition-colors duration-200">Services</a>
+                    <a href="#" class="text-apple-text hover:text-apple-accent transition-colors duration-200">Contact</a>
+                    <button class="bg-apple-text text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all duration-200">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
