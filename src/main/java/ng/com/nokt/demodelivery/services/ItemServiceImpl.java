@@ -5,6 +5,7 @@ import ng.com.nokt.demodelivery.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -17,6 +18,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item createItem(Item item) {
+        item.setCode(UUID.randomUUID().toString());
         return itemRepository.save(item);
     }
 

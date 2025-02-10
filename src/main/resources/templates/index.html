@@ -39,7 +39,7 @@
 <body class="bg-apple-gray">
     <div class="min-h-screen">
         <!-- Navigation -->
-        <nav th:replace="fragments/navbar :: navbar"></nav>
+        <nav th:replace="~{fragments/navbar :: navbar}"></nav>
 
         <!-- Hero Section -->
         <div class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -84,12 +84,12 @@
                             </div>
                         </div>
 
-                        <button class="group inline-flex items-center bg-apple-text text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all duration-200">
+                        <a href="/create-vehicle" class="group inline-flex items-center bg-apple-text text-white px-8 py-4 rounded-full hover:bg-opacity-90 transition-all duration-200">
                             Get Started
                             <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                        </button>
+                        </a>
                     </div>
 
                     <!-- Right Illustration -->
