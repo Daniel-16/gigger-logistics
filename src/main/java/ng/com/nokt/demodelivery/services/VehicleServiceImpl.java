@@ -2,7 +2,6 @@ package ng.com.nokt.demodelivery.services;
 
 import ng.com.nokt.demodelivery.entites.Vehicle;
 import ng.com.nokt.demodelivery.repository.VehicleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
