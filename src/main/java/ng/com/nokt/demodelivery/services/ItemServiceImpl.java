@@ -1,7 +1,10 @@
 package ng.com.nokt.demodelivery.services;
 
 import ng.com.nokt.demodelivery.entites.Item;
+import ng.com.nokt.demodelivery.entites.Vehicle;
 import ng.com.nokt.demodelivery.repository.ItemRepository;
+import ng.com.nokt.demodelivery.repository.VehicleRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +14,11 @@ import java.util.UUID;
 public class ItemServiceImpl implements ItemService {
 
     private final ItemRepository itemRepository;
+    private final VehicleRepository vehicleRepository;
 
-    public ItemServiceImpl(ItemRepository itemRepository) {
+    public ItemServiceImpl(ItemRepository itemRepository, VehicleRepository vehicleRepository) {
         this.itemRepository = itemRepository;
+        this.vehicleRepository = vehicleRepository;
     }
 
     @Override
@@ -34,6 +39,13 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void deleteItem(Long id) {
+        Item item = itemRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Item not found with id: " + id));
+        List<Vehicle> vehicles = vehicleRepository.findByItemsContaining(item);
+        for (Vehicle vehicle : vehicles) {
+            vehicle.getItems().remove(item);
+            vehicleRepository.save(vehicle);
+        }        
         itemRepository.deleteById(id);
     }
 }

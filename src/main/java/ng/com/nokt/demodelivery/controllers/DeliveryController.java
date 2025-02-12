@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class DeliveryController {
@@ -46,7 +47,7 @@ public class DeliveryController {
         vehicleService.createVehicle(vehicle);
         model.addAttribute("message", message);
         model.addAttribute("vehicle", vehicle).addAttribute("allVehicles", vehicleService.getAllVehicles());
-        return "redirect:/feature";
+        return "redirect:/create-vehicle";
     }
 
     @GetMapping("/create-item")
@@ -61,4 +62,53 @@ public class DeliveryController {
         model.addAttribute("item", item).addAttribute("allItems", itemService.getAllItems());
         return "redirect:/create-item";
 }
+
+    @GetMapping("/assign-item")
+    public String showAssignItemForm(Model model) {
+        model.addAttribute("vehicles", vehicleService.getAllVehicles());
+        model.addAttribute("items", itemService.getAllItems());
+        model.addAttribute("assignmentForm", new ItemAssignment());
+        return "assign-item";
+    }
+
+    @PostMapping("/assign-item")
+    public String assignItem(@ModelAttribute("assignmentForm") ItemAssignment form, 
+                           RedirectAttributes redirectAttributes) {
+        try {
+            // Get vehicle and item
+            Vehicle vehicle = vehicleService.getVehicleByPlateNumber(form.getPlateNumber());
+            Item item = itemService.getItemById(form.getItemId());
+
+            // Calculate total current weight
+            float currentWeight = 0;
+            if (vehicle.getItems() != null) {
+                currentWeight = vehicle.getItems().stream()
+                    .map(Item::getWeight)
+                    .reduce(0f, Float::sum);
+            }
+
+            // Check if adding new item exceeds capacity
+            if (currentWeight + item.getWeight() > vehicle.getCarryingWeight()) {
+                redirectAttributes.addFlashAttribute("error", 
+                    String.format("Cannot assign item. Total weight (%.2f kg) would exceed vehicle capacity of %.2f kg", 
+                        currentWeight + item.getWeight(), vehicle.getCarryingWeight()));
+                return "redirect:/assign-item";
+            }
+
+            // Add item to vehicle
+            vehicle.getItems().add(item);
+            vehicleService.createVehicle(vehicle);
+
+            redirectAttributes.addFlashAttribute("success", 
+                String.format("Item '%s' successfully assigned to vehicle '%s'. Remaining capacity: %.2f kg", 
+                    item.getName(), vehicle.getName(), 
+                    vehicle.getCarryingWeight() - (currentWeight + item.getWeight())));
+
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error assigning item: " + e.getMessage());
+        }
+        
+        return "redirect:/assign-item";
+    }
+
 }

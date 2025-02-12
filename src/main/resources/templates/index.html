@@ -5,36 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gigger - Premium Logistics Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'apple-gray': '#F5F5F7',
-                        'apple-text': '#1D1D1F',
-                        'apple-accent': '#2997FF'
-                    },
-                    fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-    </style>
+    <script th:replace="~{fragments/tailwind :: tailwind-config}"></script>
 </head>
 <body class="bg-apple-gray">
     <div class="min-h-screen">
@@ -93,24 +64,41 @@
                     </div>
 
                     <!-- Right Illustration -->
-                    <div class="w-full lg:w-1/2 mt-12 lg:mt-0">
-                        <div class="relative">
-                            <div class="absolute inset-0 bg-gradient-to-br from-apple-accent/20 to-transparent rounded-3xl transform rotate-3"></div>
-                            <div class="relative bg-white p-8 rounded-3xl shadow-xl">
-                                <svg class="w-full" viewBox="0 0 500 300" fill="none">
+                    <div class="w-full lg:w-1/2 mt-12 lg:mt-0 animate-fade-in-right">
+                        <div class="relative transition-all duration-500 hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-br from-apple-accent/20 to-transparent rounded-3xl transform rotate-3 animate-pulse"></div>
+                            <div class="relative bg-white p-8 rounded-3xl shadow-xl transition-all duration-300 hover:shadow-2xl">
+                                <svg class="w-full transition-transform duration-500 hover:rotate-1" viewBox="0 0 500 300" fill="none">
                                     <defs>
                                         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#2997FF;stop-opacity:0.2" />
-                                            <stop offset="100%" style="stop-color:#2997FF;stop-opacity:0" />
+                                            <stop offset="0%" style="stop-color:#2997FF;stop-opacity:0.2">
+                                                <animate attributeName="stop-opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
+                                            </stop>
+                                            <stop offset="100%" style="stop-color:#2997FF;stop-opacity:0">
+                                                <animate attributeName="stop-opacity" values="0;0.2;0" dur="3s" repeatCount="indefinite"/>
+                                            </stop>
                                         </linearGradient>
                                     </defs>
-                                    <rect x="0" y="0" width="500" height="300" fill="url(#gradient)" rx="20"/>
-                                    <path d="M250 50 L250 80" stroke="#1D1D1F" stroke-width="4"/>
-                                    <path d="M220 80 L280 80" stroke="#1D1D1F" stroke-width="4"/>
-                                    <rect x="100" y="100" width="300" height="150" fill="#1D1D1F" rx="10"/>
+                                    <rect x="0" y="0" width="500" height="300" fill="url(#gradient)" rx="20">
+                                        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <path d="M250 50 L250 80" stroke="#1D1D1F" stroke-width="4" class="animate-draw">
+                                        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" fill="freeze"/>
+                                    </path>
+                                    <path d="M220 80 L280 80" stroke="#1D1D1F" stroke-width="4" class="animate-draw">
+                                        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" fill="freeze"/>
+                                    </path>
+                                    <rect x="100" y="100" width="300" height="150" fill="#1D1D1F" rx="10" class="animate-fade">
+                                        <animate attributeName="opacity" from="0" to="1" dur="1s" fill="freeze"/>
+                                    </rect>
                                     <rect x="110" y="110" width="280" height="130" fill="#1D1D1F" stroke="white" stroke-width="2" rx="8"/>
-                                    <path d="M200 160 C220 160, 240 200, 260 160" stroke="white" stroke-width="8" fill="none"/>
-                                    <text x="270" y="180" fill="white" font-size="24" font-weight="bold">gigger</text>
+                                    <path d="M200 160 C220 160, 240 200, 260 160" stroke="white" stroke-width="8" fill="none">
+                                        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" fill="freeze"/>
+                                    </path>
+                                    <text x="270" y="180" fill="white" font-size="24" font-weight="bold" class="animate-fade">
+                                        <animate attributeName="opacity" from="0" to="1" dur="2s" fill="freeze"/>
+                                        gigger
+                                    </text>
                                 </svg>
                             </div>
                         </div>
@@ -288,5 +276,6 @@
             </div>
         </div>
     </div>
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>
 </html>
